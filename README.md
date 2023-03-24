@@ -1,7 +1,7 @@
 Parquet File Merger
 ===================
 
-A simple Python tool for merging Parquet files into a single DataFrame and exporting it as a CSV file.
+A Python tool for merging Parquet files into a single DataFrame and exporting it as a CSV file.
 
 Features
 --------
@@ -15,6 +15,7 @@ Features
 *   Optional: Print the number of missing values in the merged DataFrame
 *   Optional: Define a suitable output filename based on current date and time
 *   Optional: Export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time
+*   NEW: Parquet First File Viewer - Read the first non-empty Parquet file in each subdirectory of a given directory and display the first 10 rows of the resulting DataFrame
 
 Requirements
 ------------
@@ -26,7 +27,7 @@ Requirements
 Installation
 ------------
 
-1.  Clone the repository or download the `parquet_merger.py` file.
+1.  Clone the repository or download the `parquet_merger.py` and `parquet_first_viewer.py` files.
     
 2.  Install the required packages:
     
@@ -38,7 +39,7 @@ Installation
 Usage
 -----
 
-1.  Open the `parquet_merger.py` file in a text editor and modify the `folder_path` variable with the actual path to the folder containing your Parquet files.
+1.  Open the `parquet_merger.py` or `parquet_first_viewer.py` file in a text editor and modify the `folder_path` variable with the actual path to the folder containing your Parquet files.
     
 2.  Save and close the file.
     
@@ -48,4 +49,12 @@ Usage
     python parquet_merger.py
     ```
     
-4.  The script will read and merge the Parquet files, print relevant information and statistics, and optionally export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time. Optional features such as displaying summary statistics and printing the number of missing values can be enabled by answering prompts in the console.
+    or
+    
+    ```
+    python parquet_first_viewer.py
+    ```
+    
+4.  For `parquet_merger.py`, the script will read and merge the Parquet files, print relevant information and statistics, and optionally export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time. Optional features such as displaying summary statistics and printing the number of missing values can be enabled by answering prompts in the console.
+    
+5.  For `parquet_first_viewer.py`, the script will read the first non-empty Parquet file in each subdirectory of the given directory and display the first 10 rows of the resulting DataFrame.
