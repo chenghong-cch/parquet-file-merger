@@ -17,7 +17,7 @@ for index, file in enumerate(sorted_parquet_files):
     
     # Check file size, skip files with size 0
     if os.path.getsize(file_path) == 0:
-        print(f"File '{file_path}' is 0 bytes, skipping.")
+        print(f"Skipped empty file '{file[:10]}...' at index {index}.")
         continue
     
     df = pd.read_parquet(file_path)
@@ -25,7 +25,7 @@ for index, file in enumerate(sorted_parquet_files):
 
     # Print successfully read message, number of rows in the file, and progress percentage
     progress_percentage = (index + 1) / total_files * 100
-    print(f"Successfully read file '{file_path}', {df.shape[0]} rows, progress: {progress_percentage:.2f}%.")
+    print(f"Read file '{file[:10]}...' at index {index}, {df.shape[0]} rows, progress: {progress_percentage:.2f}%.")
 
 merged_df = pd.concat(dfs, ignore_index=True)
 
@@ -36,18 +36,17 @@ print(f"Total rows in merged dataframe: {merged_df.shape[0]}")
 print("\nHead of merged dataframe:")
 print(merged_df.head())
 
-# Print summary statistics of the merged dataframe
-print("\nSummary statistics of merged dataframe:")
-print(merged_df.describe())
+# Optional: Print summary statistics of the merged dataframe
+# print("\nSummary statistics of merged dataframe:")
+# print(merged_df.describe())
 
-# Print the number of missing values in the merged dataframe
-print("\nNumber of missing values in merged dataframe:")
-print(merged_df.isnull().sum())
+# Optional: Print the number of missing values in the merged dataframe
+# print("\nNumber of missing values in merged dataframe:")
+# print(merged_df.isnull().sum())
 
-# Define a suitable output filename based on current date and time
-output_filename = f"merged_dataframe_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+# Optional: Define a suitable output filename based on current date and time
+# output_filename = f"merged_dataframe_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
 
-# Export the merged dataframe to a CSV file
-merged_df.to_csv(output_filename, index=False)
-
-print(f"\nMerged dataframe has been saved as '{output_filename}'.")
+# Optional: Export the merged dataframe to a CSV file
+# merged_df.to_csv(output_filename, index=False)
+# print(f"\nMerged dataframe saved as '{output_filename}'.")
