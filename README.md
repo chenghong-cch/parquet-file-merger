@@ -11,8 +11,10 @@ Features
 *   Show progress while reading files
 *   Print the number of rows in each file and the merged DataFrame
 *   Print the head of the merged DataFrame
-*   Display summary statistics for the merged DataFrame
-*   Export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time
+*   Optional: Display summary statistics for the merged DataFrame
+*   Optional: Print the number of missing values in the merged DataFrame
+*   Optional: Define a suitable output filename based on current date and time
+*   Optional: Export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time
 
 Requirements
 ------------
@@ -46,4 +48,4 @@ Usage
     python parquet_merger.py
     ```
     
-4.  The script will read and merge the Parquet files, print relevant information and statistics, and export the merged DataFrame to a CSV file.
+4.  The script will read and merge the Parquet files, print relevant information and statistics, and optionally export the merged DataFrame to a CSV file with an automatically generated filename based on the current date and time. Optional features such as displaying summary statistics and printing the number of missing values can be enabled by answering prompts in the console.
